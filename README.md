@@ -1,6 +1,6 @@
 SendOSC
 ====
-SendOSC is a simple sending OSC packet tool for Android.
+SendOSC is a simple OSC tool for Android.
 
 (now under construction...)
 
