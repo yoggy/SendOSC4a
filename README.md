@@ -9,7 +9,7 @@ Libraries
 ----
 Send uses the following libraries.
 
-Java OS
+Java OSC
 * http://www.illposed.com/software/javaosc.html
 
 JmDNS
