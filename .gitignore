@@ -52,3 +52,9 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+
+.settings/
+.classpath
+.project
+bin/
+gen/

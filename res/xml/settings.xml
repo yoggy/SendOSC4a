@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android" >
+
+    <EditTextPreference
+        android:defaultValue="192.168.1.1"
+        android:enabled="true"
+        android:key="host"
+        android:title="host"
+        android:summary="OSC destination host" />
+    
+    <EditTextPreference
+        android:defaultValue="7000"
+        android:numeric="integer"
+        android:enabled="true"
+        android:key="port"
+        android:title="port"
+        android:summary="OSC destination port" />
+
+    <EditTextPreference
+        android:defaultValue="/addr0"
+        android:enabled="true"
+        android:key="button0_addr"
+        android:title="button0_addr"
+        android:summary="OSC Address for button0" />
+
+    <EditTextPreference
+        android:defaultValue="i:0,s:text"
+        android:enabled="true"
+        android:key="button0_args"
+        android:title="button0_args"
+        android:summary="OSC Arguments for button0 (i:int, s:string)" />
+
+    <EditTextPreference
+        android:defaultValue="/addr1"
+        android:enabled="true"
+        android:key="button1_addr"
+        android:title="button1_addr"
+        android:summary="OSC Address for button1" />
+
+    <EditTextPreference
+        android:defaultValue="i:1,s:text1"
+        android:enabled="true"
+        android:key="button1_args"
+        android:title="button1_args"
+        android:summary="OSC Arguments for button1 (i:int, s:string)" />
+
+    <EditTextPreference
+        android:defaultValue="/addr2"
+        android:enabled="true"
+        android:key="button2_addr"
+        android:title="button2_addr"
+        android:summary="OSC Address for button2" />
+
+    <EditTextPreference
+        android:defaultValue="i:2,s:text2"
+        android:enabled="true"
+        android:key="button2_args"
+        android:title="button2_args"
+        android:summary="OSC Arguments for button2 (i:int, s:string)" />
+
+    <EditTextPreference
+        android:defaultValue="/addr3"
+        android:enabled="true"
+        android:key="button3_addr"
+        android:title="button3_addr"
+        android:summary="OSC Address for button3" />
+
+    <EditTextPreference
+        android:defaultValue="i:3,s:text3"
+        android:enabled="true"
+        android:key="button3_args"
+        android:title="button3_args"
+        android:summary="OSC Arguments for button3 (i:int, s:string)" />
+
+    <EditTextPreference
+        android:defaultValue="/addr4"
+        android:enabled="true"
+        android:key="button4_addr"
+        android:title="button4_addr"
+        android:summary="OSC Address for button4" />
+
+    <EditTextPreference
+        android:defaultValue="i:4,s:text4"
+        android:enabled="true"
+        android:key="button4_args"
+        android:title="button4_args"
+        android:summary="OSC Arguments for button4 (i:int, s:string)" />
+
+    <EditTextPreference
+        android:defaultValue="/addr5"
+        android:enabled="true"
+        android:key="button5_addr"
+        android:title="button5_addr"
+        android:summary="OSC Address for button5" />
+
+    <EditTextPreference
+        android:defaultValue="i:5,s:text5"
+        android:enabled="true"
+        android:key="button5_args"
+        android:title="button5_args"
+        android:summary="OSC Arguments for button5 (i:int, s:string)" />
+
+    <EditTextPreference
+        android:defaultValue="/addr6"
+        android:enabled="true"
+        android:key="button6_addr"
+        android:title="button6_addr"
+        android:summary="OSC Address for button6" />
+
+    <EditTextPreference
+        android:defaultValue="i:6,s:text6"
+        android:enabled="true"
+        android:key="button6_args"
+        android:title="button6_args"
+        android:summary="OSC Arguments for button6 (i:int, s:string)" />
+
+    <EditTextPreference
+        android:defaultValue="/addr7"
+        android:enabled="true"
+        android:key="button7_addr"
+        android:title="button7_addr"
+        android:summary="OSC Address for button7" />
+
+    <EditTextPreference
+        android:defaultValue="i:7,s:text7"
+        android:enabled="true"
+        android:key="button7_args"
+        android:title="button7_args"
+        android:summary="OSC Arguments for button7 (i:int, s:string)" />
+
+</PreferenceScreen>
