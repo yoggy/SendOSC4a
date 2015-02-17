@@ -207,7 +207,7 @@ public abstract class PseudoP5View extends SurfaceView implements
 
 	protected void text(String str, float x, float y) {
 		Paint p = getFillPaint();
-		p.setTextSize(16);
+		p.setTextSize(12);
 		cc.drawText(str, x, y, p);
 	}
 	
