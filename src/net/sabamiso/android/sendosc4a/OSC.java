@@ -5,6 +5,7 @@ import java.util.Locale;
 import java.util.Vector;
 
 import net.sabamiso.android.util.Config;
+import net.sabamiso.android.util.Resolver;
 import android.os.StrictMode;
 import android.util.Log;
 
@@ -38,9 +39,6 @@ public class OSC {
 	protected OSC() {
 		cf = Config.getInstance();
 		reload();
-
-		// disable StrictMode
-		StrictMode.setThreadPolicy(new StrictMode.ThreadPolicy.Builder().permitAll().build());
 	}
 
 	public void reload() {
@@ -54,7 +52,9 @@ public class OSC {
 		
 
 		try {
-			InetAddress addr = InetAddress.getByName(host);
+			Resolver resolver = Resolver.getInstance();
+			InetAddress addr = resolver.resolv(host);
+			
 			sender = new OSCPortOut(addr, port);
 		} catch (Exception e) {
 			Log.e("OSC", e.toString());

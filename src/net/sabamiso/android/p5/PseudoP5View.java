@@ -355,6 +355,7 @@ public abstract class PseudoP5View extends SurfaceView implements
 
 	public void onPause() {
 		timerStop();
+		mousePressed = false;
 	}
 
 	void timerStart() {

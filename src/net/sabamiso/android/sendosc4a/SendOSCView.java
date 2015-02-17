@@ -5,6 +5,8 @@ import java.util.Vector;
 import net.sabamiso.android.p5.PseudoP5View;
 import android.content.Context;
 import android.content.Intent;
+import android.net.wifi.WifiManager;
+import android.net.wifi.WifiManager.MulticastLock;
 import android.os.Vibrator;
 
 public class SendOSCView extends PseudoP5View {
@@ -20,7 +22,7 @@ public class SendOSCView extends PseudoP5View {
 			this.y = y;
 			this.w = w;
 			this.h = h;
-			
+
 			last_pressed_status = false;
 		}
 
@@ -38,23 +40,26 @@ public class SendOSCView extends PseudoP5View {
 		}
 
 		public boolean isPressed() {
-			if (mousePressed == false) return false;
+			if (mousePressed == false)
+				return false;
 			return isInner(mouseX, mouseY);
 		}
 
 		void process() {
-			boolean current_pressed_status = isPressed();
+			if (osc == null) return;
 			
+			boolean current_pressed_status = isPressed();
+
 			if (current_pressed_status == true && last_pressed_status == false) {
 				osc.sendPressedMessage(idx);
-			}
-			else if (current_pressed_status == false && last_pressed_status == true) {
+			} else if (current_pressed_status == false
+					&& last_pressed_status == true) {
 				osc.sendReleasedMessage(idx);
 			}
-			
+
 			last_pressed_status = current_pressed_status;
 		}
-		
+
 		public void draw() {
 			strokeWeight(5);
 			stroke(255);
@@ -75,6 +80,7 @@ public class SendOSCView extends PseudoP5View {
 	Vector<Button> v = new Vector<Button>();
 	long last_pressed_t;
 	OSC osc;
+	MulticastLock lock;
 
 	public SendOSCView(Context context) {
 		super(context);
@@ -86,16 +92,20 @@ public class SendOSCView extends PseudoP5View {
 		frameRate(30);
 
 		createButtons();
-		
-		osc = OSC.getInstance();
 	}
 
 	@Override
 	public void onResume() {
 		super.onResume();
+		osc = OSC.getInstance();
 		osc.reload();
 	}
-		
+
+	@Override
+	public void onPause() {
+		super.onPause();
+	}
+
 	void createButtons() {
 		for (int i = 0; i < 8; ++i) {
 			int bx = i % 2;
@@ -124,10 +134,11 @@ public class SendOSCView extends PseudoP5View {
 		// check long press
 		long diff = System.currentTimeMillis() - last_pressed_t;
 		if (mousePressed == true && diff > 2000) {
-			
-			Vibrator v = (Vibrator)getContext().getSystemService(Context.VIBRATOR_SERVICE);
+
+			Vibrator v = (Vibrator) getContext().getSystemService(
+					Context.VIBRATOR_SERVICE);
 			v.vibrate(100);
-			
+
 			Intent intent = new Intent(getContext(), SettingsActivity.class);
 			getContext().startActivity(intent);
 		}
@@ -137,5 +148,5 @@ public class SendOSCView extends PseudoP5View {
 	protected void mousePressed() {
 		last_pressed_t = System.currentTimeMillis();
 	}
-	
+
 }
