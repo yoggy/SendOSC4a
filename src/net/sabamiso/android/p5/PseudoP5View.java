@@ -129,7 +129,7 @@ public abstract class PseudoP5View extends SurfaceView implements
 	}
 
 	protected void fill(int c) {
-		fill(c, 255);
+		fill(c, c, c, 255);
 	}
 
 	protected void fill(int c, int a) {
@@ -149,11 +149,11 @@ public abstract class PseudoP5View extends SurfaceView implements
 	}
 
 	protected void stroke(int c) {
-		stroke(c, 255);
+		stroke(c, c, c, 255);
 	}
 
 	protected void stroke(int r, int g, int b) {
-		stroke(rgb2Int(r, g, b), 255);
+		stroke(r, g, b, 255);
 	}
 
 	protected void stroke(int c, int a) {
